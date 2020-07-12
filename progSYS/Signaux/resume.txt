@@ -1,0 +1,30 @@
+Rappel : 
+L’appel système pause() endort le processus jusqu’à la réception d’un signal quelconque.
+
+Rappel :
+Lorsque l’appel système wait() est appelée, l’exécution du père est suspendue jusqu’à ce qu’un fils se
+termine. De plus, il faut mettre autant d’appels de wait() qu’il y a de fils. La fonction wait()
+est fréquement utilisée pour permettre au processus père d’attendre la fin de ses fils avant de se terminer
+lui-même.
+
+Rappel :
+Il est possible de mettre le processus père en attente de la fin d’un processus fils particulier par
+l’instruction waitpid(pid_fils, NULL, 0).
+
+Rappel :
+.struct sigaction action; //creation de la structure sigaction qui decrit le gestionaire des signaux. 
+
+.action.sa_handler = message; //message est une fonction qui prend un int en entree et qui juste affiche un message (fonction handler).
+Dans le champ sa_handler, nous précisons la fonction qui sera appelée (le nouveau comportement
+redéfini pour un signal donné).
+
+.action.sa_flags=0;
+
+.sigemptyset(&action.sa_mask); //Le masque que nous indiquons dans sa_mask spécifie les signaux que nous ne souhaitons pas
+capter pendant l’exécution de la fonction de traitement du signal. En vidant ce masque avec la
+fonction sigemptyset(), nous signifions au système que tous les signaux pouvant survenir pendant
+une interruption sont à mettre en attente.
+
+.sigaction(SIGUSR1, &action, NULL); //ajouter le signal SIGUSR1 pour etre gerer avec la fonction sigaction
+
+
