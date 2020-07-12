@@ -1,0 +1,8 @@
+Exercice 1 :
+On Désire faire communiquer deux processus P1 et P2 sans lien de parenté. Le processus I récupère une
+chaine de caractère passée en paramètre et l’envoi au processus II qui la récupère et l’affiche. Ecrire les
+deux programmes C sous Unix implémentant P1 et P2.
+Appels Systèmes : mkfifo(), open(), read(), write()
+Indication :
+Les deux processus utilisent un tube nommé pour communiquer.
+Le processus I écrit la chaine dans le tube. Le processus II lit la chaine de caractere de tube
