@@ -1,0 +1,13 @@
+Exercice 2 :
+Question : Commentez le programme ci-dessous. (décrire ce qu’il fait).
+
+*********************************************************************
+                          CORRECTION
+*********************************************************************
+
+Dans ce programme, on utilise deux tubes:
+• Tube fifotube1 : qui permet au Processus 1 d’écrire dedans et au Processus2 de lire à partir de
+ce tube.
+• Tube fifotube2 : qui permet au Processus 1 de lire à partir du tube et au Processus 2 d’écrire
+dans ce tube.
+

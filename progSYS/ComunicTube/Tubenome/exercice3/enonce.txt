@@ -1,0 +1,5 @@
+Exercice 3 :
+Écrire un programme qui fait communiquer deux processus Ecrivain et Lecteur sans lien de parenté.
+
+Chaque fois qu’il recoit un mot, le processus Lecteur inverse les lettres de ce mot et les renvoie en ma-
+juscule au processus Ecrivain. On considère que le programme ne s’arrête jamais.
