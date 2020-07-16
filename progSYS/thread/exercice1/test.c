@@ -4,9 +4,11 @@
 #include <stdlib.h>
 
 void* myturn(void* arg){
+	int* n = (int*)arg;
+
 	for(int i=0; i<10; i++){
-		sleep(1);
-		printf("c'est mon tour ! n° %d\n", i+1);
+		sleep(2);
+		printf("c'est mon tour ! n° %d %d\n", i+1, (*n)++);
 	}
 	pthread_exit(NULL); // terminaison d'un thread
 }
@@ -20,8 +22,17 @@ void yourturn(){
 
 int main(){
 	pthread_t thread1;
-	pthread_create(&thread1, NULL, myturn, NULL);
+	int myturn_arg =17;
+
+	//creation du thread avec passage de l,argument myturn_arg a la fonction myturn
+	pthread_create(&thread1, NULL, myturn, (void*)&myturn_arg);
+
 	yourturn();
+	pthread_join(thread1, NULL);
+
+	//affichage de la valeur de myturn_arg apres le thread1
+	printf("Apres terminaison du thread1, myturn_arg = %d\n", myturn_arg);
+
 	pthread_exit(NULL); // terminaison du thread principal 'main'
 }
 /*
